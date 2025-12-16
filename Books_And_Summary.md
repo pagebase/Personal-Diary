@@ -1,6 +1,6 @@
 # Table of content
 
-1.[**Limitless** by *Jim Kwik*](#limitless-by-jim-kwik)
+## 1.[**Limitless** by *Jim Kwik*](#limitless-by-jim-kwik)
 
 ---
 
