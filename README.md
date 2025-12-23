@@ -1,6 +1,6 @@
 # English content watching challenge streak
 
-| Date | Rakesh   | Basavraj   | Ajit   | Dipak   | Muku   |
+| Date | Rocket   | Bus   | Ajent   | Dippink   | Mute   |
 | :----: | :---: | :---: | :---: | :---: | :---: |
 |11 Dec 2025|:o:||:o:|||
 |12 Dec 2025|:o:|||:x:||
