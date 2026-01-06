@@ -1,7 +1,7 @@
 # Table of contents
 
 1. [How to change wallpaper of 1000 Computers at once](#how-to-change-wallpaper-of-1000-computers-at-once)
-2. [how to add install app on 1000 computers?](#how-to-add-install-app-on-1000-computers?)
+2. [how to add install app on 1000 computers?](#how-to-add-install-app-on-1000-computers)
 
 ---
 # How to change wallpaper of 1000 Computers at once
