@@ -26,3 +26,4 @@
 26. [Big Think](http://www.youtube.com/channel/UCvQECJukTDE2i6aCoMnS-Vg)
 27. [Linus Tech Tips](https://youtube.com/@linustechtips?si=qh0zSIHo1dhB507A)
 28. [Tech Raj](https://www.youtube.com/channel/UCY7t-zBYtdj6ZgiRpi3WIYg)
+29. [Dronebotworkshop](https://m.youtube.com/@Dronebotworkshop/videos)
