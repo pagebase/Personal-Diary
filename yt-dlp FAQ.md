@@ -177,3 +177,74 @@ If `yt-dlp` cannot read your browser directly (which happens with certain Linux 
     ```
     yt-dlp --cookies cookies.txt "https://www.youtube.com/watch?v=..."
     ```
+
+---
+
+```bash
+raj@Raj:~/Downloads/temp$ yt-dlp --cookies-from-browser chrome "https://youtu.be/Wko-2c7lZL8"
+Extracting cookies from chrome
+[Cookies] Loading cookie      0/    40ERROR: secretstorage not available as the `secretstorage` module is not installed. Please install by running `python3 -m pip install secretstorage`
+WARNING: failed to decrypt cookie (AES-CBC) because UTF-8 decoding failed. Possibly the key is wrong?
+Extracted 31 cookies from chrome (9 could not be decrypted)
+[youtube] Extracting URL: https://youtu.be/Wko-2c7lZL8
+[youtube] Wko-2c7lZL8: Downloading webpage
+WARNING: [youtube] No supported JavaScript runtime could be found. Only deno is enabled by default; to use another runtime add  --js-runtimes RUNTIME[:PATH]  to your command/config. YouTube extraction without a JS runtime has been deprecated, and some formats may be missing. See  https://github.com/yt-dlp/yt-dlp/wiki/EJS  for details on installing one
+[youtube] Wko-2c7lZL8: Downloading visionos player API JSON
+WARNING: [youtube] No title found in player responses; falling back to title from initial data. Other metadata may also be missing
+ERROR: [youtube] Wko-2c7lZL8: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies
+```
+
+#### Solution:
+
+Based on the terminal output in `image_0adb80.png`, `yt-dlp` is failing because it's missing some required dependencies on your Linux system to decrypt Chrome's cookies and handle YouTube's extraction scripts.
+
+  
+
+Here is how to fix the specific errors shown in your screenshot.
+
+  
+
+### 1. Fix the Cookie Decryption Error
+
+Chrome on Linux encrypts its cookie database using your system's keyring. To decrypt these cookies, `yt-dlp` requires a Python module called `secretstorage`, which is currently missing on your system.
+
+  
+
+Run the following command in your terminal to install it:
+
+  
+
+Bash
+
+```
+python3 -m pip install secretstorage
+```
+
+_Note: If you get a "externally-managed-environment" error from pip (common on newer Linux distros like Ubuntu 24.04+), install it via your system package manager instead (e.g., `sudo apt install python3-secretstorage`)._
+
+  
+
+### 2. Fix the Missing JavaScript Runtime Warning
+
+YouTube recently changed how they serve video data, and `yt-dlp` now frequently needs a JavaScript engine to bypass certain bot checks and extract video signatures.
+
+  
+
+You need to install either **Node.js** or **Deno** on your system. Node.js is usually the easiest to grab from your package manager:
+
+  
+
+Bash
+
+```
+sudo apt update
+sudo apt install nodejs
+```
+
+_(If you are using an Arch-based distro, use `sudo pacman -S nodejs` instead, or `sudo dnf install nodejs` for Fedora)._
+
+  
+
+Once you have installed `secretstorage` and `nodejs`, close your terminal, open a new one, and run your exact `yt-dlp` command again. The cookie decryption should succeed, which will automatically fix the final red error (`Sign in to confirm you're not a bot`).
+
+---
