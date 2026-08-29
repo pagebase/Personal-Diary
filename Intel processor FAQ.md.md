@@ -59,3 +59,41 @@ The rivalry between Intel's Core Ultra series and AMD's Ryzen lineup (Ryzen 9000
 
 * **Intel Strengths:** With the Core Ultra 200V (Lunar Lake) series, Intel currently holds the crown for **battery life and efficiency** in x86 Windows laptops. They also excel in AI task responsiveness.
 * **AMD Strengths:** Ryzen AI 300 series laptops feature incredibly powerful integrated Radeon graphics, making them vastly superior for playing AAA games without a dedicated GPU. They also offer better multi-threading performance in the thin-and-light segment.
+
+---
+# Which processor is equivalent to `Ryzen 7 7840HS` in Intel?
+
+The closest Intel equivalents to the AMD Ryzen 7 7840HS are the **Intel Core i7-13700H** (from the same 2023 release window) and the **Intel Core Ultra 7 155H** (the immediate successor found in newer laptops).
+
+  
+
+All three processors are designed for premium thin-and-light creator laptops and mid-range gaming laptops, balancing high multi-core performance with mobility.
+
+  
+
+|**Feature**|**AMD Ryzen 7 7840HS**|**Intel Core i7-13700H**|**Intel Core Ultra 7 155H**|
+|---|---|---|---|
+|**Architecture**|Zen 4 (Phoenix)|Raptor Lake (13th Gen)|Meteor Lake (Core Ultra 1st Gen)|
+|**Cores / Threads**|8 Cores / 16 Threads|14 Cores (6P + 8E) / 20 Threads|16 Cores (6P + 8E + 2LPE) / 22 Threads|
+|**Max Boost Clock**|Up to 5.1 GHz|Up to 5.0 GHz|Up to 4.8 GHz|
+|**Integrated Graphics**|Radeon 780M|Intel Iris Xe (96 EU)|Intel Arc Graphics (8 Xe Cores)|
+|**Base TDP**|35W - 54W|45W|28W (Scales up to 115W)|
+
+Here is how the Ryzen 7 7840HS compares to its Intel rivals across key workloads:
+
+  
+
+- **CPU Performance:** The Intel chips (both the 13700H and 155H) generally win in raw multi-core benchmarks like Cinebench or heavy video rendering because they pack significantly more physical cores. The Ryzen 7 7840HS remains highly competitive in single-core speeds and everyday responsiveness.
+    
+      
+    
+- **Integrated Graphics (Gaming without a dedicated GPU):** The Ryzen 7 7840HS features the Radeon 780M, which absolutely crushes the older Intel Core i7-13700H's Iris Xe graphics. However, if you compare it to the newer Core Ultra 7 155H, Intel's upgraded Arc graphics essentially tie the Radeon 780M, allowing both to play modern AAA games at 1080p on low/medium settings.
+    
+      
+    
+- **Battery Life and Efficiency:** The Ryzen 7 7840HS is highly power-efficient and usually outlasts the Core i7-13700H in battery life tests. The newer Core Ultra 7 155H closes this gap with its dedicated low-power efficiency cores, making battery life a toss-up depending heavily on the specific laptop's battery size and screen.
+    
+      
+    
+
+If you are buying a laptop without a dedicated graphics card (like an RTX 4060), the Ryzen 7 7840HS or the Core Ultra 7 155H are significantly better choices than the i7-13700H due to their vastly superior integrated graphics.
