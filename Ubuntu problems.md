@@ -267,3 +267,151 @@ A sleek, modern environment that uses GNOME technologies but provides a more tra
 ```bash
 sudo apt install ./filename.deb
 ```
+
+
+---
+# Speed up system
+
+To speed up your Ubuntu system, you need to remove cached package data, clean up unused dependencies, eliminate duplicate snap versions, and disable resource-heavy startup applications.
+
+Here is the step-by-step blueprint to safely purge unnecessary clutter and maximize system performance.
+
+---
+
+## 1. Clean Up the Package Manager (`apt`)
+
+Every time you install or upgrade software, Ubuntu keeps the downloaded installation files (`.deb` packages) cached. Over time, this eats up gigabytes of storage and slows down package updates.
+
+Run these commands in your terminal:
+
+```bash
+# Remove cached packages that can no longer be downloaded (obsolete)
+sudo apt autoclean
+
+# Completely clear out the local repository of downloaded package files
+sudo apt clean
+
+# Remove orphaned packages and dependencies that are no longer needed
+sudo apt autoremove --purge
+```
+
+---
+
+## 2. Purge Old Snap Package Versions
+
+The Snap package manager keeps at least two older versions of every application you install in case you need to roll back. If you have a lot of Snaps (like Firefox, Chromium, or Spotify), this wastes massive amounts of disk space.
+
+You can free up significant space by running a script to clear out these disabled revisions. Paste this command into your terminal:
+
+```bash
+sudo journalctl --vacuum-time=3d
+```
+
+_(This first vacuums your system logs, reducing them to just the last 3 days)._
+
+Next, copy and paste this command block to loop through and delete old Snap versions:
+
+```bash
+LANG=C snap list --all | awk '/disabled/{print $1, $3}' |
+    while read snapname revision; do
+        sudo snap remove "$snapname" --revision="$revision"
+    done
+```
+
+---
+
+## 3. Clear System Journal Logs
+
+Ubuntu automatically records system logs (`journald`). If left unchecked, these logs can grow to tens of gigabytes, adding friction to background indexing processes.
+
+Limit your system logs to a manageable size (e.g., 500 Megabytes):
+
+```bash
+sudo journalctl --vacuum-size=500M
+```
+
+---
+
+## 4. Remove Leftover Flatpak Runtimes
+
+If you use Flatpak applications alongside Snap or Apt, uninstalled apps often leave behind bulky, unused runtime frameworks. Clear them with a single command:
+
+```bash
+flatpak uninstall --unused
+```
+
+---
+
+## 5. Disable Unnecessary Startup Applications
+
+The fastest way to improve boot time and instantly free up RAM is to stop apps from launching automatically when you log in.
+
+1. Open the Startup Applications utility from your Ubuntu application menu.
+2. Uncheck any third-party programs you do not need immediately upon boot (e.g., Discord, Steam, AnyDesk, or browser update checkers).
+3. If you want to see hidden system startup applications to optimize further, run this command before opening the utility:
+    
+    ```bash
+    sudo sed -i 's/NoDisplay=true/NoDisplay=false/g' /etc/xdg/autostart/*.desktop
+    ```
+    
+
+---
+
+## 🛠️ Hardware-Level Speed Boost (If using an SSD)
+
+If Ubuntu is installed on a Solid State Drive (SSD), ensuring the TRIM command is active will prevent the drive from slowing down over time. Ubuntu usually handles this weekly, but you can force an optimization pass right now:
+
+```bash
+sudo fstrim -av
+```
+
+To tailor this specifically to your machine, could you tell me:
+
+- Are you running Ubuntu on an SSD or a traditional HDD?
+- How much RAM does your machine have?
+- Is your main issue slow boot times, or lagging while multitasking?
+
+Knowing these specifics helps narrow down whether you need memory optimization or disk management.
+
+---
+# System version command
+
+```bash
+lsb_release -a
+```
+
+---
+# GNOME version check command
+
+```bash
+gnome-shell --version
+```
+
+
+---
+# AppImage installation process
+
+### Install the FUSE library
+
+```bash
+sudo apt install libfuse2
+```
+OR
+```bash
+sudo apt install libfuse2t64
+```
+
+### Make the AppImage Executable
+
+```bash
+cd ~/Downloads
+chmod +x your-app-name.AppImage
+```
+
+### Run the AppImage
+
+```bash
+./your-app-name.AppImage
+```
+
+---
