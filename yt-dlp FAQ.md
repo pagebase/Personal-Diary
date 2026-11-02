@@ -248,3 +248,8 @@ _(If you are using an Arch-based distro, use `sudo pacman -S nodejs` instead, or
 Once you have installed `secretstorage` and `nodejs`, close your terminal, open a new one, and run your exact `yt-dlp` command again. The cookie decryption should succeed, which will automatically fix the final red error (`Sign in to confirm you're not a bot`).
 
 ---
+# Download audio
+
+```bash
+yt-dlp --js-runtime node -x --audio-format flac "https://www.youtube.com/watch?v=7RkRlgYGdbY&list=PLXEg1KA5o1XlTxYy2_rX72MiQcsJzqdHi&index=1"
+```
