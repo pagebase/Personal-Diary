@@ -253,3 +253,9 @@ Once you have installed `secretstorage` and `nodejs`, close your terminal, open 
 ```bash
 yt-dlp --js-runtime node -x --audio-format flac "https://www.youtube.com/watch?v=7RkRlgYGdbY&list=PLXEg1KA5o1XlTxYy2_rX72MiQcsJzqdHi&index=1"
 ```
+
+# Complete command for download
+
+```
+yt-dlp --cookies cookies.txt --js-runtime node "https://www.youtube.com/watch?v=tt2k8PGm-TI&list=RD3AtDnEC4zak&index=12"
+```
